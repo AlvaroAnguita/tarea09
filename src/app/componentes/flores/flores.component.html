@@ -1,0 +1,9 @@
+<p>listado de flores!</p>
+
+<ul>
+  <li *ngFor="let flor of flores; let i=index">
+    {{i+1}}-{{flor}}
+  </li>
+</ul>
+
+<button (click)="borrar()">Borrar todas las flores</button>

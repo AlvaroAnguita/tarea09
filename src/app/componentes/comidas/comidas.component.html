@@ -1,0 +1,9 @@
+<p>listado de Comidas!</p>
+
+<ul>
+  <li *ngFor="let comida of comidas; let i=index">
+    {{i+1}}-{{comida}}
+  </li>
+</ul>
+
+<button (click)="borrar()">Borrar todas las comidas</button>
