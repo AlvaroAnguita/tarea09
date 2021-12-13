@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { tService } from '../service/tarea.service';
 
 @Component({
   selector: 'app-dias',
@@ -6,11 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dias.component.css']
 })
 export class DiasComponent{
+  constructor (private service:tService){}
 
-  dias:string[]=["lunes","martes","miercoles","jueves","viernes"];
+  get dias(){
+    return this.service.dias;
+    }
+
   borrar():void{
-
-    this.dias.pop();
+    this.service.borrarDias();
   }
 
 }

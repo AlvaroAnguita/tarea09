@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { tService } from '../service/tarea.service';
 
 
 @Component({
@@ -8,11 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FloresComponent{
 
-  flores:string[]=["Marihuana","Aciano ","Dahlia","Candy Cane","Hakea Laurina","Flor de Jade","Zinnia","Flor Tricyrtis Hirta"];
+constructor(private service:tService){}
+get flores(){
+  return this.service.flores;
+  }
+
+
   borrar():void{
-    while(this.flores.length>0){
-      this.flores.pop();
-    }
+   this.service.borrarFlores();
   }
 
 }

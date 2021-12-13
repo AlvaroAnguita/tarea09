@@ -7,6 +7,7 @@ import { DiasComponent } from './componentes/dias/dias.component';
 import { FloresComponent } from './componentes/flores/flores.component';
 import { ComidasComponent } from './componentes/comidas/comidas.component';
 import { CiudadesComponent } from './componentes/ciudades/ciudades.component';
+import { tService } from './componentes/service/tarea.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,9 @@ import { CiudadesComponent } from './componentes/ciudades/ciudades.component';
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [
+    tService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { tService } from '../service/tarea.service';
 
 @Component({
   selector: 'app-meses',
@@ -6,13 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./meses.component.css']
 })
 export class MesesComponent {
+  constructor (private service:tService){}
 
+  get meses(){
+    return this.service.meses;
+    }
 
-
-  meses:string[]=["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
   borrar():void{
-
-    this.meses.pop();
+    this.service.borrarMeses();
   }
 
 }

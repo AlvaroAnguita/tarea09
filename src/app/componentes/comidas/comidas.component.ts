@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { tService } from '../service/tarea.service';
 
 @Component({
   selector: 'app-comidas',
@@ -7,13 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ComidasComponent {
 
+constructor(private service:tService){}
+get comidas(){
+  return this.service.comidas;
+  }
 
-  comidas:string[]=["Patatas con huevo","Pollo asado ","Macarrones","Albondigas en salsa de almendra","Solomillo a la pimienta",
-  "Pollo al limon","Kebab"];
+
   borrar():void{
-    while(this.comidas.length>0){
-      this.comidas.pop();
-    }
+   this.service.borrarComidas();
   }
 
 }

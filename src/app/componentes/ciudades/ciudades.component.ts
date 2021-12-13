@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { tService } from '../service/tarea.service';
 
 @Component({
   selector: 'app-ciudades',
@@ -6,17 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./ciudades.component.css']
 })
 export class CiudadesComponent {
-  ciudadesBorradas: string[] = [];
-  cB:string="";
-  ci:string[]=[]
-  ciudades:string[]=["Granada","Madrid","Salamanca","Sevilla","Malaga","Valencia"];
+constructor(private service:tService){}
+
   borrar():void{
-    this.cB=String(this.ciudades.pop()?.toString())
-    
-    this.ciudadesBorradas.push(this.cB)
-    this.mostrar();
+   this.service.borrarCiudades();
   }
   mostrar():void{
-  this.ci=this.ciudades;
+  this.service.mostrarCiudades();
+  }
+
+  get ci(){
+    return this.service.ci;
+  }
+  get ciudadesBorradas(){
+    return this.service.ciudadesBorradas;
   }
 }
